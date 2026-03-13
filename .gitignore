@@ -1,0 +1,6 @@
+.runtime/
+.claude/
+.logs/
+__pycache__/
+.beads/
+.opencode/
