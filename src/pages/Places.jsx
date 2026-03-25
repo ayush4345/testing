@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import PageHeader from '../components/PageHeader'
 
 const places = [
   {
@@ -34,18 +35,14 @@ const places = [
 ]
 
 function Places() {
-  useEffect(() => {
-    observeElements()
-  }, [])
+  useScrollAnimation('.project-card')
 
   return (
     <>
-      <header className="hero" style={{ minHeight: '40vh' }}>
-        <div className="hero-content">
-          <h1>Places I&apos;ve Visited</h1>
-          <p>A journey through the different corners of the world I&apos;ve explored.</p>
-        </div>
-      </header>
+      <PageHeader 
+        title="Places I&apos;ve Visited"
+        description="A journey through the different corners of the world I&apos;ve explored."
+      />
 
       <section className="projects">
         <div className="container">
@@ -63,25 +60,6 @@ function Places() {
       </section>
     </>
   )
-}
-
-function observeElements() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1'
-        entry.target.style.transform = 'translateY(0)'
-      }
-    })
-  }, { threshold: 0.1 })
-
-  const cards = document.querySelectorAll('.project-card')
-  cards.forEach(card => {
-    card.style.opacity = '0'
-    card.style.transform = 'translateY(20px)'
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
-    observer.observe(card)
-  })
 }
 
 export default Places

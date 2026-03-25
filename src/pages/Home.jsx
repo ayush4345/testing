@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import PageHeader from '../components/PageHeader'
 
 function Home() {
-  useEffect(() => {
-    observeElements()
-  }, [])
+  useScrollAnimation()
 
   const scrollToProjects = () => {
     const section = document.getElementById('projects')
@@ -14,13 +14,12 @@ function Home() {
 
   return (
     <>
-      <header className="hero">
-        <div className="hero-content">
-          <h1>Welcome to My Portfolio</h1>
-          <p>Crafting beautiful and responsive web experiences</p>
-          <button className="cta-btn" onClick={scrollToProjects}>View My Work</button>
-        </div>
-      </header>
+      <PageHeader 
+        title="Welcome to My Portfolio"
+        description="Crafting beautiful and responsive web experiences"
+        buttonText="View My Work"
+        onButtonClick={scrollToProjects}
+      />
 
       <section id="projects" className="projects">
         <div className="container">
@@ -66,25 +65,6 @@ function Home() {
       </section>
     </>
   )
-}
-
-function observeElements() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1'
-        entry.target.style.transform = 'translateY(0)'
-      }
-    })
-  }, { threshold: 0.1 })
-
-  const cards = document.querySelectorAll('.project-card, .feature, .skill, .timeline-item')
-  cards.forEach(card => {
-    card.style.opacity = '0'
-    card.style.transform = 'translateY(20px)'
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
-    observer.observe(card)
-  })
 }
 
 export default Home
