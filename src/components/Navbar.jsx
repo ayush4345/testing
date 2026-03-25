@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -21,19 +22,21 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.querySelector('.navbar')
-      if (navbar) {
-        navbar.style.boxShadow = window.scrollY > 50
-          ? '0 4px 12px rgba(0, 0, 0, 0.15)'
-          : '0 2px 10px rgba(0, 0, 0, 0.1)'
-      }
+      setScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <nav className="navbar">
+    <nav 
+      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
+      style={{
+        boxShadow: scrolled 
+          ? '0 4px 12px rgba(0, 0, 0, 0.15)' 
+          : '0 2px 10px rgba(0, 0, 0, 0.1)'
+      }}
+    >
       <div className="container">
         <div className="logo">MyPortfolio</div>
         <ul className={`nav-links${menuOpen ? ' active' : ''}`}>
