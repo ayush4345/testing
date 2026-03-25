@@ -7,6 +7,8 @@ export const useScrollAnimation = (selectors = '.project-card, .feature, .skill,
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
+          // Optional: unobserve after animating once
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
@@ -20,7 +22,6 @@ export const useScrollAnimation = (selectors = '.project-card, .feature, .skill,
     });
 
     return () => {
-      elements.forEach(el => observer.unobserve(el));
       observer.disconnect();
     };
   }, [selectors]);
