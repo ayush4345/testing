@@ -1,38 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import PageHeader from '../components/PageHeader'
-
-const places = [
-  {
-    name: 'Tokyo, Japan',
-    description: 'An amazing blend of ultramodern technology and rich tradition. From neon-lit streets to serene temples.',
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-  },
-  {
-    name: 'Paris, France',
-    description: 'The city of light. Wandering through historic streets, enjoying world-class art, and amazing cuisine.',
-    gradient: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)',
-  },
-  {
-    name: 'Rome, Italy',
-    description: 'Walking through living history, incredible ancient architecture, and fantastic food at every corner.',
-    gradient: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
-  },
-  {
-    name: 'New York City, USA',
-    description: 'The city that never sleeps. A vibrant melting pot of cultures, iconic skyscrapers, and endless energy.',
-    gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
-  },
-  {
-    name: 'Sydney, Australia',
-    description: 'Beautiful beaches, the stunning Opera House, and an incredible harbor setting with great weather.',
-    gradient: 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%)',
-  },
-  {
-    name: 'Cape Town, South Africa',
-    description: 'Breathtaking landscapes with Table Mountain, amazing coastal drives, and rich diverse culture.',
-    gradient: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
-  },
-]
+import places from '../data/places.json'
 
 function Places() {
   useScrollAnimation('.project-card')

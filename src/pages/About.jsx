@@ -1,5 +1,7 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import PageHeader from '../components/PageHeader'
+import skills from '../data/skills.json'
+import experience from '../data/experience.json'
 
 function About() {
   useScrollAnimation()
@@ -35,42 +37,16 @@ function About() {
         <div className="container">
           <h2>My Skills</h2>
           <div className="skills-grid">
-            <div className="skill">
-              <h3>Frontend</h3>
-              <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>React</li>
-              </ul>
-            </div>
-            <div className="skill">
-              <h3>Backend</h3>
-              <ul>
-                <li>Node.js</li>
-                <li>Python</li>
-                <li>MongoDB</li>
-                <li>PostgreSQL</li>
-              </ul>
-            </div>
-            <div className="skill">
-              <h3>Tools &amp; Technologies</h3>
-              <ul>
-                <li>Git</li>
-                <li>Docker</li>
-                <li>Webpack</li>
-                <li>REST APIs</li>
-              </ul>
-            </div>
-            <div className="skill">
-              <h3>Design</h3>
-              <ul>
-                <li>UI/UX Design</li>
-                <li>Figma</li>
-                <li>Responsive Design</li>
-                <li>Accessibility</li>
-              </ul>
-            </div>
+            {skills.map((skillGroup) => (
+              <div className="skill" key={skillGroup.category}>
+                <h3>{skillGroup.category}</h3>
+                <ul>
+                  {skillGroup.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -79,21 +55,13 @@ function About() {
         <div className="container">
           <h2>Experience</h2>
           <div className="timeline">
-            <div className="timeline-item">
-              <h3>Senior Web Developer</h3>
-              <p className="date">2023 - Present</p>
-              <p>Leading frontend development and mentoring junior developers on best practices.</p>
-            </div>
-            <div className="timeline-item">
-              <h3>Full Stack Developer</h3>
-              <p className="date">2021 - 2023</p>
-              <p>Developing and maintaining multiple web applications with focus on user experience.</p>
-            </div>
-            <div className="timeline-item">
-              <h3>Junior Web Developer</h3>
-              <p className="date">2019 - 2021</p>
-              <p>Started career building responsive websites and learning modern web technologies.</p>
-            </div>
+            {experience.map((item, index) => (
+              <div className="timeline-item" key={index}>
+                <h3>{item.title}</h3>
+                <p className="date">{item.date}</p>
+                <p>{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
