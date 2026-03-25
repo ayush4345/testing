@@ -8,7 +8,7 @@ function Home() {
   const scrollToProjects = () => {
     const section = document.getElementById('projects')
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
+      section.scrollIntoView()
     }
   }
 
