@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import PageHeader from '../components/PageHeader'
 
 const places = [
   {
@@ -38,12 +39,10 @@ function Places() {
 
   return (
     <>
-      <header className="hero" style={{ minHeight: '40vh' }}>
-        <div className="hero-content">
-          <h1>Places I&apos;ve Visited</h1>
-          <p>A journey through the different corners of the world I&apos;ve explored.</p>
-        </div>
-      </header>
+      <PageHeader 
+        title="Places I&apos;ve Visited"
+        description="A journey through the different corners of the world I&apos;ve explored."
+      />
 
       <section className="projects">
         <div className="container">

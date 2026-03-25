@@ -1,13 +1,12 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import PageHeader from '../components/PageHeader'
 
 function About() {
   useScrollAnimation()
 
   return (
     <>
-      <div className="page-header">
-        <h1>About Me</h1>
-      </div>
+      <PageHeader title="About Me" />
 
       <section className="about-section">
         <div className="container">

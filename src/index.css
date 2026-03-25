@@ -103,12 +103,16 @@ body {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* Hero Section & Page Header */
 .hero {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 8rem 20px;
+    padding: 6rem 20px;
     text-align: center;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content h1 {
@@ -245,23 +249,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Page Header */
-.page-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 4rem 20px;
-    text-align: center;
-}
-
-.page-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.page-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
+/* Removed .page-header as it is now standardized with .hero */
 
 /* About Section */
 .about-section {

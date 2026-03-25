@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import PageHeader from '../components/PageHeader'
 
 function Home() {
   useScrollAnimation()
@@ -13,13 +14,12 @@ function Home() {
 
   return (
     <>
-      <header className="hero">
-        <div className="hero-content">
-          <h1>Welcome to My Portfolio</h1>
-          <p>Crafting beautiful and responsive web experiences</p>
-          <button className="cta-btn" onClick={scrollToProjects}>View My Work</button>
-        </div>
-      </header>
+      <PageHeader 
+        title="Welcome to My Portfolio"
+        description="Crafting beautiful and responsive web experiences"
+        buttonText="View My Work"
+        onButtonClick={scrollToProjects}
+      />
 
       <section id="projects" className="projects">
         <div className="container">
