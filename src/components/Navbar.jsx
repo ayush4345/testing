@@ -3,7 +3,6 @@ import { NavLink, useLocation } from 'react-router-dom'
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const hamburgerRef = useRef(null)
 
@@ -35,23 +34,8 @@ function Navbar() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [menuOpen])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <nav 
-      className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}
-      style={{
-        boxShadow: scrolled 
-          ? '0 4px 12px rgba(0, 0, 0, 0.15)' 
-          : '0 2px 10px rgba(0, 0, 0, 0.1)'
-      }}
-    >
+    <nav className="navbar">
       <div className="container">
         <div className="logo">MyPortfolio</div>
         <ul className={`nav-links${menuOpen ? ' active' : ''}`} aria-hidden={!menuOpen}>
